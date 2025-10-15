@@ -1,0 +1,78 @@
+Java AI Programming Project
+Prerequisites
+	•	Java Development Kit (JDK) 17 or higher 
+	•	Maven 3.6 or higher 
+	•	Internet connection (for API calls) 
+	•	Perplexity API key (for AI capabilities)  Setup Instructions  How to get Perplexity API key  Refer to this website guide : https://docs.perplexity.ai/guides/getting-started  1. Set up the Perplexity API key  The application uses the Perplexity API, which requires an API key. You can set it up in one of these ways:  Option 1: Eclipse IDE 
+	1	Right-click on MainApplication.java in the Package Explorer 
+	2	Select "Run As" → "Run Configurations..." 
+	3	In the Run Configurations dialog, select the "Environment" tab 
+	4	Click "New..." button 
+	5	Set "Name" to PERPLEXITY_API_KEY 
+	6	Set "Value" to your actual API key 
+	7	Click "OK" to save the environment variable 
+	8	Click "Apply" then "Run" to launch the application 
+Option 2: Environment Variable via Command Line
+Set the PERPLEXITY_API_KEY environment variable: Windows:
+set PERPLEXITY_API_KEY=your_api_key_here
+macOS/Linux:
+export PERPLEXITY_API_KEY=your_api_key_here
+2. Set up FreeTTS Library Files
+  
+For speech functionality, you need to set up the FreeTTS libraries:
+	1	Locate the freetts folder provided with the project 
+	2	In Eclipse, right-click on the project in the Package Explorer 
+	3	Select "Properties" 
+	4	Go to "Java Build Path" → "Libraries" tab 
+	5	Delete/Remove All Exisiting JAR files under classpath and add them again. 
+	6	Click "Add JARs..." or "Add External JARs..." button 
+	7	Navigate to the project's freetts/lib folder 
+	8	Select all JAR files in the lib folder 
+	9	Click "Open" and then "Apply and Close" 
+	10	The FreeTTS libraries should now be added to your project's classpath 
+Option 2: Modify the code directly
+If you can't set environment variables, you can modify the ChatController.java file:
+	1	Open src/com/teamname/controller/ChatController.java 
+	2	Locate the constructor where the API key is initialized (around line 70) 
+	3	Replace: 
+4. String apiKey = System.getenv("PERPLEXITY_API_KEY");
+with:
+String apiKey = "your_api_key_here";
+3. Build and Run the project Using Eclipse IDE
+1. Import the project into Eclipse: o Select "File" → "Import" → "Maven" → "Existing Maven Projects" o Browse to the project directory and click "Finish"
+2. Build the project: o Right-click on the project in Package Explorer o Select "Run As" → "Maven build..." o Enter clean package in the Goals field o Click "Run"
+3. Run the application: o Right-click on MainApplication.java in the Package Explorer o Select "Run As" → "Java Application"
+The application uses several libraries:
+	•	JavaFX - UI framework 
+	•	RSyntaxTextArea - Syntax highlighting for code examples 
+	•	iText PDF - PDF generation for conversation exports 
+	•	Gson - JSON processing for API communication 
+	•	SQLite JDBC - Local database storage 
+	•	Ikonli - Font icons for the UI 
+• FreeTTS - Text-to-speech capabilities All dependencies are managed through Maven and will be downloaded automatically
+during the build process.
+Using the Application
+	1	Chat Interface: Type your questions about Java programming in the text area at the bottom 
+	2	Voice Input/Output: Toggle voice input/output using the buttons above the text area 
+	3	Priority Levels: Set message priority using the dropdown 
+	4	Conversation Management: 
+o Create new conversations with the "+ New Chat" button o Switch between conversations using the sidebar o Delete conversations by clicking the X next to the conversation title
+	5	Export: Download conversations as PDF using the "Export PDF" button 
+	6	Summarize: Generate AI summaries of conversations with the "Summarize" button 
+Troubleshooting
+Verifying Installation
+When the application starts successfully: • You should see a GUI window with the title "AI Programming Tutor"
+	•	If the API key is not set or invalid, the application will fall back to local, pre- programmed responses 
+	•	Check the console output for API-related error messages Voice Capabilities 
+	•	Voice input/output may not work on all systems due to dependencies 
+	•	The application will show warnings if voice features are unavailable  Database Issues 
+	•	If the database file becomes corrupted, delete the chat_history.db file and restart the application 
+	•	The application will create a new database file automatically  Contact 
+• Student Name: Anupkumar Bochare, Krittivasan Jagannathan, Ganesh Gadicherla
+✅Application started successfully"
+
+	•	The console or terminal should display: " 
+	•	If the API key is properly set, you'll see: "API key found. Length: XX" 
+API Issues
+• Email: gadicherla.s@northeastern.edu
+  
